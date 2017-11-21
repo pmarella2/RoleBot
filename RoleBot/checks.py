@@ -2,7 +2,7 @@ from discord.ext import commands
 import discord.utils
 import json
 
-with open('config.json') as json_data_file:
+with open('RoleBot/config.json') as json_data_file:
     cfg = json.load(json_data_file)
 
 def is_owner_check(message):
