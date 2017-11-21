@@ -94,41 +94,6 @@ async def cavatar(ctx, link : str):
 		await bot.edit_profile(avatar = bytelike)
 	await bot.say('Done.')
 
-@bot.command(pass_context=True)
-@checks.is_owner()
-async def purge(ctx, num: int=5):
-	"""Purge a certain number of messages (the default is 5)"""
-	await bot.purge_from(ctx.message.channel, limit = num)
-	msg = await bot.say('Deleted `' + f"{str(num)}" + '` message(s)')
-	await asyncio.sleep(3)
-	await bot.delete_message(msg)
-@purge.error
-async def p_error(error, ctx):
-	if isinstance(error, commands.BadArgument):
-		await bot.say("That\'s not a number...")
-	if isinstance(error, commands.CheckFailure):
-		await bot.say("Insufficent permissions")
-
-@bot.command(pass_context=True)
-@checks.is_owner()
-async def charinfo(ctx, *, characters: str):
-	"""Shows you information about a number of characters.
-	Only up to 25 characters at a time if custom emoji, do only one at a time.
-	"""
-	if characters.startswith("<:"):
-		await bot.say("``" + characters[2:-1] + f"``\t:" + "Custom emoji")
-		return
-
-	if len(characters) > 25:
-		await bot.say(f'Too many characters ({len(characters)}/25)')
-
-	def to_string(c):
-
-		digit = f'{ord(c):x}'
-		name = unicodedata.name(c, 'Name not found.')
-		return f'`\\U{digit:>08}`\t: {name} - {c} \N{EM DASH} <http://www.fileformat.info/info/unicode/char/{digit}>'
-	await bot.say('\n'.join(map(to_string, characters)))
-
 @bot.command(hidden=True, pass_context=True)
 @checks.is_owner()
 async def dbug(ctx, *, te):
