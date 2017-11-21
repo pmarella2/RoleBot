@@ -14,7 +14,7 @@ import json
 import unicodedata
 
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
-with open('config.json') as json_data_file:
+with open('RoleBot/config.json') as json_data_file:
     cfg = json.load(json_data_file)
 
 startup_plugins = cfg["startup_plugins"]
