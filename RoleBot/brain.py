@@ -37,9 +37,9 @@ async def on_ready():
 async def on_message(message):
 	if message.author.bot:
 		return
-	if message.channel.is_private:
+	#if message.channel.is_private:
             # print('Private Message: @{} by {}:      {}'.format(str(message.timestamp)[:16], message.author, message.content))
-            return
+        #    return
 	await bot.process_commands(message)
 
 ########OWNER CMDS###########
