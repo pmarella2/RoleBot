@@ -11,7 +11,8 @@ After that is completed you will be given a token (we will be using this momenta
 
 ### **Python3 3.6.X**: 
 It is important to have python3 and 3.6.0 or above because of f strings.
-[Download here](https://www.python.org/downloads/release) (Don't forget to check "python launcher" and "Add to PATH" when installing under Windows and macOS *and you can build it yourself for if you want to for Linux.*  
+[Download here](https://www.python.org/downloads/release) (Don't forget to check "python launcher" and "Add to PATH" when installing under Windows and macOS *and you can build it yourself for if you want to for Linux.*
+
 Linux commands to download and install Python3 3.6.X: (in this case it was 3.6.3 because thats the latest at this time)
 1. wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz
 2. tar xJf Python-3.6.3.tar.xz
@@ -24,21 +25,21 @@ Linux commands to download and install Python3 3.6.X: (in this case it was 3.6.3
 ### **dicord.py, asyncio and urllib3**:
 Open your preferred terminal interface (Could be Command Prompt, PowerShell or a Unix Terminal) and type:
 ```python
-pip install discord.py asyncio urllib3
+python3 -m pip install -U discord.py asyncio urllib3
 ```
 
 ### **Git**:
-For Windows http://git-scm.com/download/win  
-For macOS http://git-scm.com/download/mac  
-And if you are using linux you probably have it alredy
+For Windows: http://git-scm.com/download/win  
+For macOS: http://git-scm.com/download/mac  
+For Linux: sudo apt-get install git
 
 
 ### **The bot itself**:
 Go to the directory you want to donwload the bot to and type:
 ```bash
-git clone https://github.com/jelliedpizza/RoleBot.git
+git clone https://github.com/pmarella2/SortingHat.git
 ```
-*Alternatively you can click [here](https://github.com/jelliedpizza/RoleBot/archive/master.zip)*
+*Alternatively you can click [here](https://github.com/pmarella2/SortingHat/archive/master.zip)*
 
 
 
@@ -51,8 +52,8 @@ Replace YOURID with your dicord ID for the bot to identify you
 > Right click on your name in any message and copy ID and paste it in inside the qutes  
 
 Remember step one? Now enter your token inside the quotes from your discord applications.  
-You can delete everythong from the squar brackets just remember the syntax if you want to load plugins on startup.  
-Edit the prefix inside the quotes you to your liking (this what you write before commands to call them).
+You can delete everything from the squaer brackets just remember the syntax if you want to load plugins on startup.  
+Edit the prefix inside the quotes you to your liking (this what you write before commands to call them). Default: --
 
 ### **Understanding the plugin system**:
 If you run `brain.py` it will give you a link that you can use to invite the bot to your server but it only responds to the built-in commands.  
