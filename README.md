@@ -1,22 +1,27 @@
-# RoleBot: an open source bot whose sole purpose is role management (Proof of concept)
+# SortingHat: an extension to RoleBot: a open source role management discord bot (Proof of concept)
 
 
 ## **Requirements:**
 
 ### **A discord application**:
 Create an application [here.](https://discordapp.com/developers/applications/me)
-Give it a name and a picture (you can change these later).
-And then create a bot account.
-When you do you recive a token which you should never share with anyone else. That token authorizes code to interact with the bot account.
-You will need the token later.
+Give it a name and a picture. (You can always customize them later on)
+Now select Public Bot.
+After that is completed you will be given a token (we will be using this momentarily) which should never be shared with anyone else. (This token authorizes code to interact with the bot account)
+
+### **Python3 3.6.X**: 
+It is important to have python3 and 3.6.0 or above because of f strings.
+[Download here](https://www.python.org/downloads/release) (Don't forget to check "python launcher" and "Add to PATH" when installing under Windows and macOS *and you can build it yourself for if you want to for Linux.*  
+Linux commands to download and install Python3 3.6.X: (in this case it was 3.6.3 because thats the latest at this time)
+1. wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tar.xz
+2. tar xJf Python-3.6.3.tar.xz
+3. cd Python-3.6.3
+4. ./configure
+5. make
+6. make install
 
 
-### **The newest python 3.6** is recommended but anything above python 3.5 will do:
-[Download here](https://www.python.org/downloads/release) (Don't forget to check "python launcher" and "Add to PATH" when installing under Windows and macOS *and you can build it yourself  for if you want to for Linux.*  
-[How to install it on Linux (The easy way)](https://packaging.python.org/guides/installing-using-linux-tools/) (Remember: Python 3)
-
-
-### **dicord py, asyncio and urllib3**:
+### **dicord.py, asyncio and urllib3**:
 Open your preferred terminal interface (Could be Command Prompt, PowerShell or a Unix Terminal) and type:
 ```python
 pip install discord.py asyncio urllib3
