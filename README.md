@@ -1,4 +1,4 @@
-# SortingHat: an extension to RoleBot: a open source role management discord bot (Proof of concept)
+# SortingHat: an extension to RoleBot: a open source role management discord bot (Proof of Concept)
 
 
 ## **Requirements:**
