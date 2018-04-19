@@ -1,10 +1,10 @@
 {
-        "OwnerID":"157355779320446976",
-        "Token":"MzgxMDI2OTY4ODI2NTQ0MTMx.DPWahA.AZjee5yZKEvW2Wt_Il-QxerXGGo",
+        "OwnerID":"92670159554113536",
+        "Token":"MzgyMjg4OTMzNDg2MzI5ODU2.DPTh3w.OsDaaQtI7q_sj7mc0sd7Xd2ynBI",
         "startup_plugins":[
-            "RoleBot/test1",
-            "test2",
-            "test3"
+            "sort",
+			"ranks",
+            "ranks2"
             ],
         "Prefix":["--"]
 }

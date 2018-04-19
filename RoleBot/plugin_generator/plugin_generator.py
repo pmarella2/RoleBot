@@ -49,24 +49,20 @@ def num1():
 from discord.ext import commands
 import checks
 import asyncio
-
 class {command_name}():
     def __init__(self, bot):
         self.bot = bot
-
     @checks.is_owner()
     @commands.command(name='{command_name}', pass_context=True)
     async def choice(self, ctx):
         '''{message}'''
         await self.bot.delete_message(ctx.message)
-
         msg = await self.bot.say('{message}')
 {add_emojis}
         await asyncio.sleep(0.1)
         while True:
             res = await self.bot.wait_for_reaction({wfe}, message=msg)
 {add_roles}
-
 def setup(bot):
     bot.add_cog({command_name}(bot))"""
 
@@ -125,24 +121,20 @@ def num2():
 from discord.ext import commands
 import checks
 import asyncio
-
 class {command_name}():
     def __init__(self, bot):
         self.bot = bot
-
     @checks.is_owner()
     @commands.command(name='{command_name}', pass_context=True)
     async def choice(self, ctx):
         '''{message}'''
         await self.bot.delete_message(ctx.message)
-
         msg = await self.bot.say('{message}')
 {add_emojis}
         await asyncio.sleep(0.1)
         while True:
             res = await self.bot.wait_for_reaction({wfe}, message=msg)
 {add_roles}
-
 def setup(bot):
     bot.add_cog({command_name}(bot))"""
 
@@ -177,17 +169,14 @@ def num3():
 from discord.ext import commands
 import checks
 import asyncio
-
 class {command_name}():
     def __init__(self, bot):
         self.bot = bot
-
     @checks.is_owner()
     @commands.command(name='{command_name}', pass_context=True)
     async def {command_name}(self, ctx):
         '''{message}'''
         await self.bot.delete_message(ctx.message)
-
         msg = await self.bot.say('{message}')
         await self.bot.add_reaction(msg, {emoji_add})
         await self.bot.add_reaction(msg, {emoji_remove})
@@ -200,7 +189,6 @@ class {command_name}():
             elif res.reaction.emoji == {emoji_remove}:
                 await self.bot.remove_reaction(msg, {emoji_remove}, res.user)
                 await self.bot.remove_roles(res.user, discord.utils.get(msg.server.roles, name="{role}"))
-
 def setup(bot):
     bot.add_cog({command_name}(bot))"""
 

@@ -19,7 +19,7 @@ with open('config.json') as json_data_file:
 
 startup_plugins = cfg["startup_plugins"]
 
-description = '''Currently avilable commands for the plugins and basics. Commands marked "No Category" are built in:'''
+description = '''Currently available commands for the plugins and basics. Commands marked "No Category" are built in:'''
 bot = commands.Bot(command_prefix=cfg["Prefix"], description=description, pm_help=None)
 
 @bot.event
@@ -30,16 +30,16 @@ async def on_ready():
 	print(bot.user.id)
 	print('Invite link: https://discordapp.com/oauth2/authorize?client_id={}&scope=bot&permissions=268446784'.format(bot.user.id))
 	print('------')
-	await bot.change_presence(game=discord.Game(name='Prefix: {0[0]} | Ready to help'.format(bot.command_prefix), type=1))
+	await bot.change_presence(game=discord.Game(name='with your tags'.format(bot.command_prefix), type=1))
 
 
 @bot.event
 async def on_message(message):
 	if message.author.bot:
 		return
-	#if message.channel.is_private:
+	if message.channel.is_private:
             # print('Private Message: @{} by {}:      {}'.format(str(message.timestamp)[:16], message.author, message.content))
-        #    return
+            return
 	await bot.process_commands(message)
 
 ########OWNER CMDS###########
@@ -93,6 +93,41 @@ async def cavatar(ctx, link : str):
 		bytelike = bytearray(file)
 		await bot.edit_profile(avatar = bytelike)
 	await bot.say('Done.')
+
+@bot.command(pass_context=True)
+@checks.is_owner()
+async def purge(ctx, num: int=5):
+	"""Purge a certain number of messages (the default is 5)"""
+	await bot.purge_from(ctx.message.channel, limit = num)
+	msg = await bot.say('Deleted `' + f"{str(num)}" + '` message(s)')
+	await asyncio.sleep(3)
+	await bot.delete_message(msg)
+@purge.error
+async def p_error(error, ctx):
+	if isinstance(error, commands.BadArgument):
+		await bot.say("That\'s not a number...")
+	if isinstance(error, commands.CheckFailure):
+		await bot.say("Insufficent permissions")
+
+@bot.command(pass_context=True)
+@checks.is_owner()
+async def charinfo(ctx, *, characters: str):
+	"""Shows you information about a number of characters.
+	Only up to 25 characters at a time if custom emoji, do only one at a time.
+	"""
+	if characters.startswith("<:"):
+		await bot.say("``" + characters[2:-1] + f"``\t:" + "Custom emoji")
+		return
+
+	if len(characters) > 25:
+		await bot.say(f'Too many characters ({len(characters)}/25)')
+
+	def to_string(c):
+
+		digit = f'{ord(c):x}'
+		name = unicodedata.name(c, 'Name not found.')
+		return f'`\\U{digit:>08}`\t: {name} - {c} \N{EM DASH} <http://www.fileformat.info/info/unicode/char/{digit}>'
+	await bot.say('\n'.join(map(to_string, characters)))
 
 @bot.command(hidden=True, pass_context=True)
 @checks.is_owner()
